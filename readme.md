@@ -416,3 +416,9 @@ NODE_ID=whisper-node-6 python main.py
 - **缓存机制**: Redis 缓存热点数据
 - **高效打包**: 采用二进制打包方案优化翻译结果存储
 
+## TODO
+- api-gateway
+  - 统一API返回格式
+  - 增加traceId
+- 部署
+  - 容器化
