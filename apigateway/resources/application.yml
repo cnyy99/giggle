@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: giggle-translation-api
+  datasource:
+    url: jdbc:mysql://localhost:3306/translation_db
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    database: 0
+    timeout: 2000ms
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 10
+        min-idle: 5
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.giggle.translation: DEBUG
+    org.ktorm: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+translation:
+  max-retry-count: 3
+  task-timeout-minutes: 30
+  result-storage-path: "/tmp/translation_results"
+  supported-languages:
+    - en
+    - zh-cn
+    - zh-tw
+    - ja
+    - ko
+    - fr
+    - de
+    - es
